@@ -1,18 +1,24 @@
 import reflex as rx 
 
-
 def index():
-    return rx.hstack(
-        rx.button(
-            "Decrement",
-            color_scheme="ruby",
-            on_click=State.decrement,
-        ),
-        rx.heading(State.count, font_size="2em"),
-        rx.button(
-            "Increment",
-            color_scheme="grass",
-            on_click=State.increment,
-        ),
-        spacing="4",
+    return rx.vstack(
+        rx.hstack(
+            rx.button(
+                "Decrement",
+                color_scheme="red",
+                border_radius="1em"
+            ),
+            rx.heading(font_size="2em"),
+            rx.button(
+                "Increment",
+                color_scheme="grass",
+                border_radius="1em"
+            ),
+        )
     )
+ 
+
+    
+app = rx.App()
+app.add_page(index)
+app._compile()
